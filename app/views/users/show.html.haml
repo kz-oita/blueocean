@@ -1,0 +1,12 @@
+.post-username
+  = "#{@user.name}の投稿"
+.contents-wrapper
+  .posts
+    - @posts.each do |post|
+      .post
+        .post__title
+          = link_to post.title, post_path(post.id)
+        .post__text
+          = post.text
+        %p.post__tags
+          TAGS

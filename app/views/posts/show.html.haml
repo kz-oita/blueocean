@@ -1,0 +1,33 @@
+.post-contents
+  .post-contents__title
+    = @post.title
+  .post-contents__text
+    = simple_format @post.text
+  .post-contents__tags
+    - @post.tag_list.each do |tag|
+      = link_to tag,tag_path(tag), class: 'tag-name'
+  .post-contents__username
+    = link_to @post.user.name, user_path(@post.user)
+  - if user_signed_in? && current_user.id == @post.user_id
+    .postManage
+      = link_to "編集", edit_post_path(@post.id), class: "postManage__edit"
+      = link_to "削除", post_path(@post.id), method: :delete, class: "postManage__delete"
+
+.comments-wrapper
+  .comment-form
+    -if current_user
+      = form_with(model: [@post, @comment], local: true) do |form|
+        = form.text_area :text, placeholder: "コメントする", class: 'comment-form__text', rows: "5"
+        = form.submit "SEND"
+    - else
+      %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+  .comment-lists
+    %h4 ＜コメント一覧＞
+    - if @comments
+      -@comments.each do |comment|
+        .comment
+          %p
+            = comment.user.name
+          %p
+            = comment.text
+

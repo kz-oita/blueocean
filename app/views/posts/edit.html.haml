@@ -1,0 +1,5 @@
+.title
+  投稿の編集
+.form
+  = form_with model: @post, class: :form, local: true do |form|
+    = render partial: "form", locals: { form: form }
