@@ -7,19 +7,5 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %header.header
-    .header__title
-      = link_to "Blue Ocean", root_path, class: "header__title--text"
-    .header__center
-      = form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |form|
-        = form.text_field :keyword, placeholder: "SEARCH", class: "search-input"
-        = form.submit "検索", class: "search-btn"
-    .header__right
-      -if user_signed_in?
-        = link_to "投稿", new_post_path, class: "header__right--btn"
-        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn"
-      -else
-        = link_to "投稿", new_post_path, class: "header__right--btn"
-        = link_to "ログイン", new_user_session_path, class: "header__right--btn"
   %body
     = yield
