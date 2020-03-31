@@ -1,3 +1,7 @@
-.tags-contents
-  - @posts.each do |post|
-    = render partial: "posts/post", locals: { post: post }
+= render 'layouts/header'
+.contents-title
+  = "『#{@tag.name}』の投稿"
+.contents-wrap
+  .posts-wrap
+    - @posts.each do |post|
+      = render partial: "posts/post", locals: { post: post }

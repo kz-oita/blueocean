@@ -1,12 +1,16 @@
-.post-username
+= render 'layouts/header'
+.contents-title
   = "#{@user.name}の投稿"
-.contents-wrapper
-  .posts
+.contents-wrap
+  .posts-wrap
     - @posts.each do |post|
-      .post
-        .post__title
-          = link_to post.title, post_path(post.id)
-        .post__text
-          = post.text
-        %p.post__tags
-          TAGS
+      .posts-wrap__lists
+        .post
+          .post__title
+            = link_to post.title, post_path(post.id)
+          .post__image
+            = image_tag post.image.url if post.image?
+            
+= paginate(@posts)
+
+.footer

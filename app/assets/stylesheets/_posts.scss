@@ -46,6 +46,14 @@ a {
         &__image > img {
           width: 100%;
         }
+        &__tags {
+          .tag-name {
+            background-color: chocolate;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            padding: 5px;
+          }
+        }
         &__username {
           display: flex;
           float: right;

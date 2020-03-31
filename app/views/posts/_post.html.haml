@@ -4,9 +4,6 @@
       = link_to post.title, post_path(post.id)
     .post__image
       = image_tag post.image.url if post.image?
-    .post__tags
-      - post.tag_list.each do |tag|
-        = link_to tag,tag_path(tag), class: 'tag-name'
     .post__username
       %p 投稿者：
       = link_to post.user.name, user_path(post.user)

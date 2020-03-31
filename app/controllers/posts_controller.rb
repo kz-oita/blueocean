@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
 
   def index
-    @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(5)
+    @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(4)
   end
 
   def new
