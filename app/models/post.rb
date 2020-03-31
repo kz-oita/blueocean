@@ -8,4 +8,6 @@ class Post < ApplicationRecord
     return Post.all unless search
     Post.where('text LIKE(?)', "%#{search}%")
   end
+
+  mount_uploader :image, ImageUploader
 end

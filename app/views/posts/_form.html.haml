@@ -7,4 +7,7 @@
 .contents-field
   %p ◆投稿内容
   = form.text_area :text, class: 'form__text'
+.contents-field
+  %p ◆写真
+  = form.file_field :image, class: 'form__image'
 = form.submit '投稿する', class: 'form__btn'
