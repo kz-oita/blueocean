@@ -1,6 +1,10 @@
 = render 'layouts/header'
 .contents-title
-  = "#{@user.name}の投稿"
+  = "#{@user.name}のマイページ"
+.mypage-items
+  プロフィール編集
+.profile-items
+
 .contents-wrap
   .posts-wrap
     - @posts.each do |post|
