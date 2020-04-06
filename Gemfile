@@ -79,3 +79,5 @@ gem 'acts-as-taggable-on', '~> 6.0'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
+gem "jquery-rails"
+gem 'pry-rails'

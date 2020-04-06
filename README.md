@@ -33,6 +33,18 @@ Things you may want to cover:
 ### Association
 - has_many :posts
 - has_many :comments
+- has_one :profiles
+
+## profilesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|pic|string|
+|text|string|
+|diver_lank|string|
+|dive_number|integer|
+### Association
+- belongs_to :user
+
 
 ## postsテーブル
 |Column|Type|Options|

@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   end
   resources :users, only: :show
   resources :tags, only: [:index, :show]
+  resources :profiles, only: [:new, :create, :show, :update]
+
 
 end

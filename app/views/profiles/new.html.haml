@@ -1,0 +1,17 @@
+= render 'layouts/header'
+.contents-title
+  プロフィールを作成
+.profile-wrap
+  = form_with model: @profile, class: :form, local: true do |form|
+    .contents-field
+    %p ◆ 写真
+    = form.file_field :pic, class: 'form__image', id: 'user_pic', accept: 'image/*', onchange: 'previewImage(this);'
+    %img#preview{:style => "max-width:300px;"}/
+
+    .contents-field
+    %p ◆ 自己紹介
+    = form.text_area :text, class: 'form__text'
+    %p ◆ ダイバーランク
+    = form.text_field :diver_lank, class: 'form__text'
+    %p ◆ 経験本数
+    = form.text_field :dive_number, class: 'form__text'
