@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_05_060403) do
+ActiveRecord::Schema.define(version: 2020_03_31_013518) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -30,17 +30,6 @@ ActiveRecord::Schema.define(version: 2020_04_05_060403) do
     t.datetime "updated_at", null: false
     t.string "image"
     t.index ["user_id"], name: "index_posts_on_user_id"
-  end
-
-  create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "pic"
-    t.string "text"
-    t.string "diver_lank"
-    t.integer "dive_number"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "taggings", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -73,6 +62,10 @@ ActiveRecord::Schema.define(version: 2020_04_05_060403) do
     t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "image", null: false
+    t.string "text", null: false
+    t.string "diver_lank", null: false
+    t.integer "dive_number", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -85,6 +78,5 @@ ActiveRecord::Schema.define(version: 2020_04_05_060403) do
 
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
-  add_foreign_key "profiles", "users"
   add_foreign_key "taggings", "tags"
 end

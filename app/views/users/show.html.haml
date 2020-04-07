@@ -3,7 +3,17 @@
   = "#{@user.name}のマイページ"
 .mypage-items
   = link_to "プロフィール編集", new_profile_path
-.profile-items
+-# .profile
+-#   .profile__left
+-#     .profile__left__pic
+-#       = image_tag @user.profile.image.to_s
+-#   .profile__right
+-#     .profile__right__text
+-#       = @user.profile.text
+-#     .profile__right__diver-lank
+-#       = @user.profile.diver_lank
+-#     .profile__right__dive-number
+-#       = "#{@user.profile.dive_number}本"
 
 .contents-wrap
   .posts-wrap
@@ -13,7 +23,7 @@
           .post__title
             = link_to post.title, post_path(post.id)
           .post__image
-            = image_tag post.image.url if post.image?
+            = image_tag post.image.to_s
             
 = paginate(@posts)
 

@@ -5,7 +5,7 @@
   = form_with model: @profile, class: :form, local: true do |form|
     .contents-field
     %p ◆ 写真
-    = form.file_field :pic, class: 'form__image', id: 'user_pic', accept: 'image/*', onchange: 'previewImage(this);'
+    = form.file_field :image, class: 'form__image'
     %img#preview{:style => "max-width:300px;"}/
 
     .contents-field

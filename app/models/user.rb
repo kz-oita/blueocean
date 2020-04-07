@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :comments
-  has_one :profile
+  mount_uploader :image, ImageUploader
 
-  validates :name, presence: true
+  validates :name, :image, :text, :diver_lank, :dive_number,  presence: true
 end

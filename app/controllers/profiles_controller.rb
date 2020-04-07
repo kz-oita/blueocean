@@ -5,6 +5,7 @@ class ProfilesController < ApplicationController
 
   def create
     Profile.create(profile_params)
+    binding.pry
     redirect_to root_path
   end
 
@@ -20,6 +21,6 @@ class ProfilesController < ApplicationController
 
   private
   def profile_params
-    params.require(:profile).permit(:pic, :text, :diver_lank, :dive_number).merge(user_id: current_user.id)
+    params.require(:profile).permit(:image, :text, :diver_lank, :dive_number).merge(user_id: current_user.id)
   end
 end
