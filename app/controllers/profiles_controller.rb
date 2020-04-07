@@ -17,4 +17,9 @@ class ProfilesController < ApplicationController
     profile.update(post_params)
     redirect_to root_path
   end
+
+  private
+  def profile_params
+    params.require(:profile).permit(:pic, :text, :diver_lank, :dive_number).merge(user_id: current_user.id)
+  end
 end

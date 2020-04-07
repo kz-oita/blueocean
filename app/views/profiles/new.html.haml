@@ -12,6 +12,8 @@
     %p ◆ 自己紹介
     = form.text_area :text, class: 'form__text'
     %p ◆ ダイバーランク
-    = form.text_field :diver_lank, class: 'form__text'
+    = form.select :diver_lank, [["オープンウォーターダイバー", "オープンウォーターダイバー"],["アドバンスダイバー", "アドバンスダイバー"],["マスターダイバー", "マスターダイバー"],["ダイブマスター", "ダイブマスター"],["インストラクター", "インストラクター"]], {prompt: "選択してください"}, {class: 'form__text'}
     %p ◆ 経験本数
     = form.text_field :dive_number, class: 'form__text'
+
+    = form.submit '登録する', class: 'form__btn'
