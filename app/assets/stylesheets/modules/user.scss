@@ -2,7 +2,25 @@
 .mypage-items {
   text-align: center;
 }
-
+.profile {
+  width: 50%;
+  margin: 20px auto;
+  display: flex;
+  &__left {
+    width: 50%;
+    text-align: center;
+    &__pic > img {
+      width: 80%;
+      margin: auto;
+    }
+  }
+  &__right {
+    width: 50%;
+    &__content {
+      padding-top: 10px;
+    }
+  }
+}
 // ーーーー新規登録・ログインーーーー
 .account-page {
   .account-page__inner {
@@ -10,12 +28,25 @@
     margin: 60px auto;
     padding: 60px;
     background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border: 3px solid blue;
+    border-radius: 10px;
 
     .account-page__inner--left, .account-page__inner--right {
       float: left;
       width: 50%;
+      .field {
+        width: 80%;
+        .user-prof {
+          width: 415px;
+          border: 1px solid #BFBFBF;
+        }
+        .diver_lank {
+          width: 415px;
+          height: 50px;
+          background-color: white;
+          border: 1px solid #BFBFBF;
+        }
+      }
     }
     &:after {
       clear: both;
@@ -143,6 +174,16 @@
     margin: 0;
     padding: 0;
     font-size: 13px;
+  }
+}
+.preview-field {
+  width: 300px;
+  height: 225px;
+  cursor: pointer;
+  border: 1px solid #BFBFBF;
+  #preview {
+    width: 100%;
+    height: 100%;
   }
 }
 

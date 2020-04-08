@@ -2,18 +2,21 @@
 .contents-title
   = "#{@user.name}のマイページ"
 .mypage-items
-  = link_to "プロフィール編集", new_profile_path
--# .profile
--#   .profile__left
--#     .profile__left__pic
--#       = image_tag @user.profile.image.to_s
--#   .profile__right
--#     .profile__right__text
--#       = @user.profile.text
--#     .profile__right__diver-lank
--#       = @user.profile.diver_lank
--#     .profile__right__dive-number
--#       = "#{@user.profile.dive_number}本"
+  プロフィール編集
+-#   = link_to "プロフィール編集", new_session_path
+.profile
+  .profile__left
+    .profile__left__pic
+      = image_tag @user.image.url
+  .profile__right
+    .profile__right__content
+      = "Diver Lank : #{@user.diver_lank}"
+    .profile__right__content
+      = "Dive Number : #{@user.dive_number}本"
+    .profile__right__content
+      %p 自己紹介
+      = @user.text
+
 
 .contents-wrap
   .posts-wrap
