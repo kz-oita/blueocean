@@ -62,10 +62,10 @@ ActiveRecord::Schema.define(version: 2020_03_31_013518) do
     t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "image", null: false
-    t.string "text", null: false
-    t.string "diver_lank", null: false
-    t.integer "dive_number", null: false
+    t.string "image"
+    t.string "text"
+    t.string "diver_lank"
+    t.integer "dive_number"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

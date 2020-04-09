@@ -36,6 +36,24 @@
       width: 50%;
       .field {
         width: 80%;
+        .field-label__require {
+          background-color: blue;
+          margin: 0 0 0 20px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+        }
+        .field-label__hoge {
+          background-color: #BFBFBF;
+          margin: 0 0 0 20px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+        }
+
+        
         .user-prof {
           width: 415px;
           border: 1px solid #BFBFBF;

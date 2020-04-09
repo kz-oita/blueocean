@@ -1,13 +1,27 @@
 .contents-field
-  %p ◆タグ (カンマで区切る)
-  = form.text_field :tag_list, value: @post.tag_list.join(','), placeholder: '例)沖縄,石垣島', class: 'form__tag'
-.contents-field
-  %p ◆タイトル
+  = form.label :タイトル
+  %span.field-label__require 必須
+  %br
   = form.text_field :title, placeholder: '例)感動！石垣島で初マンタ', class: 'form__title'
 .contents-field
-  %p ◆投稿内容
+  = form.label :投稿内容
+  %span.field-label__require 必須
+  %br
   = form.text_area :text, class: 'form__text'
 .contents-field
-  %p ◆写真
-  = form.file_field :image, class: 'form__image'
+  = form.label :写真
+  %span.field-label__require 必須
+  %br
+  .field-input
+    = form.file_field :image, id:'post_image', style: "display:none;"
+  .preview-field
+    #preview{:onclick => "$('#post_image').click()", :style => "max-width:300px;"}
+      - if @post.image.url.present?
+        = image_tag @post.image.url
+
+.contents-field
+  = form.label :タグ（カンマで区切る）
+  %span.field-label__hoge 任意
+  %br
+  = form.text_field :tag_list, value: @post.tag_list.join(','), placeholder: '例)沖縄,石垣島', class: 'form__tag'
 = form.submit '投稿する', class: 'form__btn'

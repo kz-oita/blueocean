@@ -8,5 +8,5 @@ class User < ApplicationRecord
   has_many :comments
   mount_uploader :image, ImageUploader
 
-  validates :name, :image, :text, :diver_lank, :dive_number,  presence: true
+  validates :name, presence: true
 end

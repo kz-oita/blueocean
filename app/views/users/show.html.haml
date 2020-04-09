@@ -1,13 +1,13 @@
 = render 'layouts/header'
+= render 'layouts/main_menu'
 .contents-title
   = "#{@user.name}のマイページ"
-.mypage-items
-  プロフィール編集
--#   = link_to "プロフィール編集", new_session_path
+
 .profile
   .profile__left
     .profile__left__pic
-      = image_tag @user.image.url
+      - if @user.image.url.present?
+        = image_tag @user.image.url
   .profile__right
     .profile__right__content
       = "Diver Lank : #{@user.diver_lank}"
