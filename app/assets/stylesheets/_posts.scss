@@ -67,11 +67,12 @@ a {
         }
         &__username {
           display: flex;
-          float: right;
           text-decoration: none;
         }
+        .favorite-num {
+          display: flex;
+        }
       }
-   
     }
     
   }
@@ -112,7 +113,6 @@ a {
   justify-content: center;
   padding-top: 130px;
   .postManage{
-
     justify-content: center;
     font-size: 15px;
     margin-top: 10px;
@@ -234,6 +234,11 @@ a {
       padding: 5px;
     }
   }
+  .favorite-num {
+    display: flex;
+    padding-left: 30px;
+    margin-top: 10px;
+  }
   &__text{
     margin-top: 20px;
     padding: 0 30px;
@@ -248,6 +253,11 @@ a {
       border-radius: 5px;
       padding: 5px;
       margin-top: 15px;
+      &__name {
+        display: flex;
+        justify-content: flex-end;
+
+      }
     }
   }
   &__image > img {

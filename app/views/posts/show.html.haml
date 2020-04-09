@@ -15,6 +15,13 @@
   .post-contents__tags
     - @post.tag_list.each do |tag|
       = link_to tag,tag_path(tag), class: "tag-name"
+  .favorite-num
+    %p いいね数：
+    = @post.likes.count
+    - if current_user.already_liked?(@post)
+      = button_to 'いいね済', post_like_path(@post), method: :delete
+    - else
+      = button_to 'いいね', post_likes_path(@post)
   .comments-wrap
     .comment-form
       -if current_user
@@ -29,7 +36,8 @@
         -@comments.each do |comment|
           .comment
             %p
+            = comment.text
+            .comment__name
+              %p name:
               = comment.user.name
-            %p
-              = comment.text
 

@@ -7,3 +7,6 @@
     .post__username
       %p 投稿者：
       = link_to post.user.name, user_path(post.user)
+    .favorite-num
+      %p いいね数：
+      = post.liked_users.count
