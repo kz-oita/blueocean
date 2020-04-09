@@ -9,15 +9,7 @@
 
 
   .header__right
-    = link_to "#", class: "header__right--btn" do
-      = icon('fas', 'bars', class: "icon-menu")
-
-
-
-    -# -if user_signed_in?
-    -#   = link_to "投稿", new_post_path, class: "header__right--btn"
-    -#   = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn"
-    -#   = link_to current_user.name, user_path(current_user), class: "header__right--btn"
-    -# -else
-    -#   = link_to "新規登録", new_user_registration_path, class: "header__right--btn"
-    -#   = link_to "ログイン", new_user_session_path, class: "header__right--btn"
+    -if user_signed_in?
+    -else
+      = link_to "新規登録", new_user_registration_path, class: "header__right--btn"
+      = link_to "ログイン", new_user_session_path, class: "header__right--btn"

@@ -36,9 +36,8 @@
             = f.file_field :image, id:"user_image", style: "display:none;"
           .preview-field
             #preview{:onclick => "$('#user_image').click()", :style => "max-width:300px;"}
-
-          - if @user.image.url.present?
-            = image_tag @user.image.url
+              - if @user.image.url.present?
+                = image_tag @user.image.url
         .field
           .field-label
             = f.label :自己紹介
