@@ -7,7 +7,7 @@ a {
   color: black;
 }
 
-// indexページ
+//------------------indexページ----------------------
 .title-wrap {
   padding-top: 56%;
   width: 100%;
@@ -59,7 +59,7 @@ a {
         }
         &__tags {
           .tag-name {
-            background-color: chocolate;
+            background-color: skyblue;
             border: 1px solid transparent;
             border-radius: 5px;
             padding: 5px;
@@ -99,14 +99,12 @@ a {
     }
   }
 }
-
 .pagination {
   text-align: center;
 }
 
 
-
-// postページ
+//----------------新規投稿-------------------
 .contents-title {
   font-size: 30px;
   border-bottom: 3px solid rgb(245, 245, 245) ;
@@ -133,7 +131,6 @@ a {
       margin-left: 10px;
     }
   }
-
 }
 .form{
   width: 70%;
@@ -176,6 +173,9 @@ a {
   }
   .contents-field {
     margin-top: 20px;
+    .form__text {
+      height: 200px;
+    }
     .field-label__require {
       background-color: blue;
       margin: 0 0 0 5px;
@@ -201,8 +201,6 @@ a {
   font-weight: bold;
   padding-top: 100px;
 }
-
-
 .comments-wrap {
   margin: 0 auto;
   padding: 30px;
@@ -230,7 +228,7 @@ a {
   &__tags {
     padding: 0 30px;
     .tag-name {
-      background-color: chocolate;
+      background-color: skyblue;
       border: 1px solid transparent;
       border-radius: 5px;
       padding: 5px;
