@@ -248,19 +248,19 @@ a {
   }
   .comments-wrap {
     margin-top: 20px;
-    .comment {
+    .comments {
       border: 1px solid gray;
-      border-radius: 5px;
-      padding: 5px;
       margin-top: 15px;
-      &__name {
-        display: flex;
-        justify-content: flex-end;
-
+      padding: 10px 20px;
+      h4 {
+        text-align: center;
+      }
+      .comment-user-name{
+        color: blue;
       }
     }
-  }
-  &__image > img {
-    width: 100%;
+    &__image > img {
+      width: 100%;
+    }
   }
 }

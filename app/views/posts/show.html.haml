@@ -25,19 +25,17 @@
   .comments-wrap
     .comment-form
       -if current_user
-        = form_with(model: [@post, @comment], local: true) do |form|
+        = form_with(model: [@post, @comment], local: true, id: "new_comment") do |form|
           = form.text_area :text, placeholder: "コメントする", class: 'comment-form__text', rows: "5"
           = form.submit "SEND", class: 'form__btn'
       - else
         %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
-    .comment-lists
+    .comments
       %h4 ＜コメント一覧＞
       - if @comments
         -@comments.each do |comment|
-          .comment
-            %p
+          %p
+            %strong
+              = link_to comment.user.name, "/users/#{comment.user_id}", class: 'comment-user-name'
+              ：
             = comment.text
-            .comment__name
-              %p name:
-              = comment.user.name
-
