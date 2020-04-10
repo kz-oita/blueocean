@@ -245,6 +245,9 @@ a {
   }
   &__image {
     padding: 10px 30px;
+    img {
+      width: 100%;
+    }
   }
   .comments-wrap {
     margin-top: 20px;

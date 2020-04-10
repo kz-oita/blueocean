@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
-    @posts = @user.posts.order("created_at DESC").page(params[:page]).per(4)
-    @post = @user.posts.count
+    if user_signed_in?
+      @user = User.find(params[:id])
+      @posts = @user.posts.order("created_at DESC").page(params[:page]).per(4)
+      @post = @user.posts.count
+    else
+      redirect_to new_user_registration_path
+    end
   end
 
   def edit
