@@ -1,0 +1,5 @@
+= form_with(model: current_user.active_follows.find_by(followed_id: user.id), method: :delete) do |f|
+  = f.hidden_field :followed_id
+  = f.submit 'フォローを解除する'
+
+
