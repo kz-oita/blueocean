@@ -6,13 +6,9 @@
 - unless current_user?(@user)
   #follow_form
     - if current_user.following?(@user)
-      = form_with(model: current_user.active_follows.find_by(followed_id: @user.id), method: :delete) do |f|
-        = f.hidden_field :followed_id
-        = f.submit 'フォローを解除する'
+      = render 'relationships/unfollow', user: @user
     - else
-      = form_with(model: current_user.active_follows.build(followed_id: @user.id)) do |f|
-        = f.hidden_field :followed_id
-        = f.submit 'フォローする'
+      = render 'relationships/follow', user: @user
 
 
 .profile
@@ -39,7 +35,7 @@
       = @user.followings.count
   .userinfo__follower-num
     %p フォロワー数
-    %p.userinfo__number
+    %p#userinfo__number
       = @user.followers.count
 
 .contents-wrap

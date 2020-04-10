@@ -2,7 +2,7 @@
 .mypage-items {
   text-align: center;
 }
-.follow-wrap {
+#follow_form {
   text-align: center;
   margin-top: 20px;
     .follow-now{
@@ -59,6 +59,10 @@
     margin-left: 5px;
   }
   .userinfo__number{
+    margin-top: 5px;
+    font-size: 20px;
+  }
+  #userinfo__number{
     margin-top: 5px;
     font-size: 20px;
   }
