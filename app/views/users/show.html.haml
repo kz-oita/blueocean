@@ -2,7 +2,7 @@
 = render 'layouts/main_menu'
 .contents-title
   = "#{@user.name}のマイページ"
-
+= render 'relationships/follow_button', user: @user
 .profile
   .profile__left
     .profile__left__pic

@@ -2,6 +2,21 @@
 .mypage-items {
   text-align: center;
 }
+.follow-wrap {
+  text-align: center;
+  margin-top: 20px;
+    .follow-now{
+      width: 20%;
+      height: 40px;
+      background-color: skyblue;
+    }
+    .follows{
+      width: 20%;
+      height: 40px;
+      background-color: gainsboro;
+    }
+  }
+  
 .profile {
   width: 50%;
   margin: 20px auto;
@@ -26,7 +41,6 @@
   height: 70px;
   margin: 0 auto;
   display: flex;
-  // background-color: slateblue;
   .userinfo__post-num{
     border: 1px solid gray;
     width: 33%;
