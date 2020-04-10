@@ -32,11 +32,11 @@
   .userinfo__follow-num
     %p フォロー数
     %p.userinfo__number
-      = @user.followings.count
+      = link_to @user.followings.count, following_user_path(@user)
   .userinfo__follower-num
     %p フォロワー数
     %p#userinfo__number
-      = @user.followers.count
+      = link_to @user.followers.count, followers_user_path(@user)
 
 .contents-wrap
   .posts-wrap
