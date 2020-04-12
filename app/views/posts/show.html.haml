@@ -1,5 +1,4 @@
 = render 'layouts/header'
-= render 'layouts/main_menu'
 .contents-title
   = @post.title
   - if user_signed_in? && current_user.id == @post.user_id
@@ -15,14 +14,11 @@
   .post-contents__tags
     - @post.tag_list.each do |tag|
       = link_to tag,tag_path(tag), class: "tag-name"
-  -if user_signed_in?
-    .favorite-num
-      %p いいね数：
-      = @post.likes.count
-      - if current_user.already_liked?(@post)
-        = button_to 'いいね済', post_like_path(@post), method: :delete
-      - else
-        = button_to 'いいね', post_likes_path(@post)
+  
+  .like-wrap
+    %div{:id => "likes_buttons_#{@post.id}"}
+      = render partial: 'likes/like', locals: { post: @post}
+
   .comments-wrap
     .comment-form
       -if current_user

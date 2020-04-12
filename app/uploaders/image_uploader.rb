@@ -7,7 +7,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # storage :file
   storage :fog
 
-  process resize_to_fit: [300, 200]
+  process resize_to_fit: [800, 800]
 
 
   # Override the directory where uploaded files will be stored.
