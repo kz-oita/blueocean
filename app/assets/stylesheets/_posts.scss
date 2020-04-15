@@ -26,31 +26,30 @@ a {
   }
 }
 .contents-wrap{
-  height: 700px;
+  width: 800px;
   background-color: white;
-  padding-top: 15px;
-  overflow: scroll;
+  margin: 0 auto 50px;
   .contents-title--main {
     font-size: 30px;
-  border-bottom: 3px solid rgb(245, 245, 245) ;
-  display: flex;
-  justify-content: center;
-  padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
   }
 
   .posts-wrap {
-    margin: 20px auto 0;
-    width: 70%;
-    display: flex;
+    margin: 10px auto 0;
     &__lists {
       padding: 10px;
-      background-color: linen;
-      width: 25%;
-      margin-left: 10px;
+      background-color: #F2FDFF;
+      &:hover {
+        opacity: 0.5;
+      }
+      width: 80%;
+      margin: 30px auto;
       box-shadow: 0 0 10px rgba(black,0.2);
       box-sizing: border-box;
       .post {
-        padding: 0 10px;
+        padding: 0 30px;
         &__title {
           font-size: 20px;
         }
@@ -106,6 +105,7 @@ a {
 
 
 //----------------新規投稿-------------------
+
 .contents-title {
   font-size: 30px;
   border-bottom: 3px solid rgb(245, 245, 245) ;
@@ -133,11 +133,13 @@ a {
   }
 }
 .form{
-  width: 70%;
-  height: 100%;
+  width: 800px;
+  height: 1200px;
   margin: 0 auto;
-  padding-top: 30px;
+  padding-top: 50px;
+  background-color: white;
   &__tag {
+    margin-top: 5px;
     display: block;
     width: 100%;
     height: 50px;
@@ -145,6 +147,7 @@ a {
     border: 1px solid black ;
   }
   &__title{
+    margin-top: 5px;
     display: block;
     width: 100%;
     height: 50px;
@@ -152,6 +155,7 @@ a {
     border: 1px solid black ;
   }
   &__text {
+    margin-top: 5px;
     display: block;
     width: 100%;
     height: 100px;
@@ -164,7 +168,8 @@ a {
     text-decoration: none;
     color: #fff;
     line-height: 48px;
-    width: 100%;
+    width: 500px;
+    margin: 0 auto;
     cursor: pointer;
     margin-top: 32px;
     display: block;
@@ -172,7 +177,8 @@ a {
     border-radius: 4px;
   }
   .contents-field {
-    margin-top: 20px;
+    margin: 20px auto;
+    width: 500px;
     .form__text {
       height: 200px;
     }
@@ -195,38 +201,29 @@ a {
   }
 }
 
-.postTitle {
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
-  padding-top: 100px;
-}
-.comments-wrap {
+//----------------投稿詳細-------------------
+.post-contents {
+  background-color: white;
+  padding: 80px 150px;
+  width: 800px;
   margin: 0 auto;
-  padding: 30px;
-  .comment-form {
-    &__text {
+  box-shadow: 0 0 10px rgba(black,0.2);
+  box-sizing: border-box;
+  &__title{
+    font-size: 30px;
+    text-align: center;
+  }
+  &__text{
+    margin-top: 20px;
+  }
+  &__image {
+    margin-top: 20px;
+    img {
       width: 100%;
     }
   }
-  .comment-lists {
-    margin-top: 20px;
-  }
-}
-
-.tags-contents {
-  padding-top: 80px;
-}
-
-.post-contents {
-  background-color: linen;
-  padding: 50px;
-  width: 50%;
-  margin: 30px auto 0;
-  box-shadow: 0 0 10px rgba(black,0.2);
-  box-sizing: border-box;
   &__tags {
-    padding: 0 30px;
+    margin-top: 20px;
     .tag-name {
       background-color: skyblue;
       border: 1px solid transparent;
@@ -234,26 +231,39 @@ a {
       padding: 5px;
     }
   }
-  .favorite-num {
-    display: flex;
-    padding-left: 30px;
-    margin-top: 10px;
-  }
-  &__text{
+  .like-wrap{
     margin-top: 20px;
-    padding: 0 30px;
-  }
-  &__image {
-    padding: 10px 30px;
-    img {
-      width: 100%;
+    .favorite-num {
+      display: flex;
+      padding-left: 30px;
+      margin-top: 10px;
     }
   }
+  
   .comments-wrap {
     margin-top: 20px;
+    .comment-form {
+      &__text {
+        width: 100%;
+      }
+      .comment__btn{
+        border: 1px solid transparent;
+        background-color: skyblue;
+        text-decoration: none;
+        color: #fff;
+        line-height: 48px;
+        width: 500px;
+        margin: 0 auto;
+        cursor: pointer;
+        margin-top: 10px;
+        display: block;
+        text-align: center;
+        border-radius: 4px;
+      }
+    }
     .comments {
-      border: 1px solid gray;
-      margin-top: 15px;
+      border: 1px dashed gray;
+      margin-top: 20px;
       padding: 10px 20px;
       h4 {
         text-align: center;
@@ -262,8 +272,10 @@ a {
         color: blue;
       }
     }
-    &__image > img {
-      width: 100%;
-    }
   }
+  
+    
+    .comment-lists {
+      margin-top: 20px;
+    }
 }

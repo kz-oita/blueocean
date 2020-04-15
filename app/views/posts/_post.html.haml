@@ -1,12 +1,13 @@
 .posts-wrap__lists
   .post
-    .post__title
-      = link_to post.title, post_path(post.id)
-    .post__image
-      = image_tag post.image.url
-    .post__username
-      %p 投稿者：
-      = link_to post.user.name, user_path(post.user)
-    .favorite-num
-      %p いいね数：
-      = post.liked_users.count
+    = link_to post_path(post.id) do
+      .post__title
+        = post.title
+      .post__image
+        = image_tag post.image.url
+      .post__username
+        %p 投稿者：
+        = post.user.name
+      .favorite-num
+        %p いいね数：
+        = post.liked_users.count

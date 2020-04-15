@@ -18,6 +18,8 @@
     #preview{:onclick => "$('#post_image').click()", :style => "max-width:300px;"}
       - if @post.image.url.present?
         = image_tag @post.image.url
+      - else
+
 
 .contents-field
   = form.label :タグ（カンマで区切る）

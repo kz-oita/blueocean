@@ -1,6 +1,5 @@
 = render 'layouts/header'
-.contents-title
-  新規投稿
 .form
   = form_with model: @post, class: :form, local: true do |form|
     = render partial: "form", locals: { form: form }
+.footer
