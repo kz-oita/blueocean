@@ -10,6 +10,9 @@
     &__lists {
       padding: 10px;
       background-color: #F2FDFF;
+      &:hover {
+        opacity: 0.5;
+      }
       width: 80%;
       margin: 30px auto;
       box-shadow: 0 0 10px rgba(black,0.2);

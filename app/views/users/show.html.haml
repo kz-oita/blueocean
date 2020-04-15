@@ -1,12 +1,14 @@
 = render 'layouts/header'
-- unless current_user?(@user)
-  #follow_form
-    - if current_user.following?(@user)
-      = render 'relationships/unfollow', user: @user
-    - else
-      = render 'relationships/follow', user: @user
-
 .contents-wrap
+  - unless current_user?(@user)
+    #follow_form
+      - if current_user.following?(@user)
+        = render 'relationships/unfollow', user: @user
+      - else
+        = render 'relationships/follow', user: @user
+  -else
+    .edit-prof-btn
+      = link_to "プロフィール編集", edit_user_path(@user.id)
   .profile
     .profile__contents
       .profile__contents__left
@@ -41,11 +43,12 @@
   .posts-wrap
     - @posts.each do |post|
       .posts-wrap__lists
-        .post
-          .post__title
-            = link_to post.title, post_path(post.id)
-          .post__image
-            = image_tag post.image.to_s
+        = link_to post_path(post.id) do
+          .post
+            .post__title
+              = post.title
+            .post__image
+              = image_tag post.image.to_s
   = paginate(@posts)
 
 

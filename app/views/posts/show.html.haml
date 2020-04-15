@@ -2,6 +2,8 @@
 .post-contents
   .post-contents__title
     = @post.title
+  .post-contents__username
+    = link_to "投稿者：#{@post.user.name}", user_path(@post.user.id)
   - if user_signed_in? && current_user.id == @post.user_id
     .post-contents__manage
       = link_to "編集", edit_post_path(@post.id), class: "postManage__edit"
