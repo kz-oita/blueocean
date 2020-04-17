@@ -6,6 +6,8 @@ class Post < ApplicationRecord
   has_many :liked_users, through: :likes, source: :user
   acts_as_taggable
 
+  validates :title, :text, :image, presence: true
+
   def self.search(search)
     return Post.all unless search
     Post.where('text LIKE(?)', "%#{search}%")
