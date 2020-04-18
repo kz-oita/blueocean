@@ -1,14 +1,14 @@
-.contents-field
+.form__field
   = form.label :タイトル
   %span.field-label__require 必須
   %br
-  = form.text_field :title, placeholder: '例)感動！石垣島で初マンタ', class: 'form__title'
-.contents-field
+  = form.text_field :title, placeholder: '例)感動！石垣島で初マンタ', class: 'form__field__title'
+.form__field
   = form.label :投稿内容
   %span.field-label__require 必須
   %br
-  = form.text_area :text, class: 'form__text'
-.contents-field
+  = form.text_area :text, class: 'form__field__text'
+.form__field
   = form.label :写真
   %span.field-label__require 必須
   %br
@@ -19,14 +19,12 @@
       - if @post.image.url.present?
         = image_tag @post.image.url
       - else
-
-
-.contents-field
+.form__field
   = form.label :タグ（カンマで区切る）
   %span.field-label__hoge 任意
   %br
-  = form.text_field :tag_list, value: @post.tag_list.join(','), placeholder: '例)沖縄,石垣島', class: 'form__tag'
-= form.submit '投稿する', class: 'form__btn'
+  = form.text_field :tag_list, value: @post.tag_list.join(','), placeholder: '例)沖縄,石垣島', class: 'form__field__tag'
+= form.submit '投稿する', class: 'form__field__btn'
 
 :javascript
   $(function(){

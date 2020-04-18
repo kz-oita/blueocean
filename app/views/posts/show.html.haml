@@ -6,8 +6,8 @@
     = link_to "投稿者：#{@post.user.name}", user_path(@post.user.id)
   - if user_signed_in? && current_user.id == @post.user_id
     .post-contents__manage
-      = link_to "編集", edit_post_path(@post.id), class: "postManage__edit"
-      = link_to "削除", post_path(@post.id), method: :delete, class: "postManage__delete"
+      = link_to "編集", edit_post_path(@post.id), class: "post-contents__manage__edit"
+      = link_to "削除", post_path(@post.id), method: :delete, class: "post-contents__manage__delete"
   .post-contents__text
     = simple_format @post.text
   .post-contents__image
