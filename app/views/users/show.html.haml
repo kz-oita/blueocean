@@ -49,7 +49,7 @@
               = post.title
             .post__image
               = image_tag post.image.to_s
-  = paginate(@posts)
-
+  .paginate
+    = paginate(@posts)
 
 .footer
