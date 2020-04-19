@@ -46,9 +46,16 @@
             .field-input
               = f.file_field :image, id:"user_image", style: "display:none;"
             .preview-field
-              #preview{:onclick => "$('#user_image').click()", :style => "max-width:300px;"}
+              #preview{:onclick => "$('#user_image').click()"}
                 - if @user.image.url.present?
                   = image_tag @user.image.url
+                - else
+                  %label.preview-field__icon
+                    = icon('fas', 'camera')
+                    %br
+                    クリックまたは
+                    %br
+                    ドラッグ&ドロップ
           .field
             .field-label
               = f.label :自己紹介
@@ -73,27 +80,3 @@
           .actions
             = f.submit "Create Account", class: 'btn'
 
-:javascript
-  $(function(){
-    $fileField = $('#user_image')
-  
-    // 選択された画像を取得し表示
-    $($fileField).on('change', $fileField, function(e) {
-      file = e.target.files[0]
-      reader = new FileReader(),
-      $preview = $("#preview");
-  
-      reader.onload = (function(file) {
-        return function(e) {
-          $preview.empty();
-          $preview.append($('<img>').attr({
-            src: e.target.result,
-            width: "100%",
-            class: "preview",
-            title: file.name
-          }));
-        };
-      })(file);
-      reader.readAsDataURL(file);
-    });
-  });
