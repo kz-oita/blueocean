@@ -7,11 +7,18 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @post.images.new
   end
 
   def create
-    Post.create(post_params)
-    redirect_to root_path
+    @post = Post.new(post_params)
+    if @post.save
+      redirect_to root_path
+      flash[:success] = "投稿完了"
+    else
+      render :new
+      flash[:danger] = "投稿失敗"
+    end
   end
 
   def show
@@ -44,7 +51,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :text, :image, :tag_list).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :text, :tag_list, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def move_to_index

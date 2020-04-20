@@ -4,7 +4,7 @@
       .post__title
         = post.title
       .post__image
-        = image_tag post.image.url
+        = image_tag "#{post.images.first.image.url}"
       .post__username
         %p 投稿者：
         = post.user.name

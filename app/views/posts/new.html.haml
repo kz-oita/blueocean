@@ -1,5 +1,5 @@
 = render 'layouts/header'
 .form
-  = form_with model: @post, class: :form, local: true do |form|
+  = form_for @post do |form|
     = render partial: "form", locals: { form: form }
 .footer

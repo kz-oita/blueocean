@@ -38,7 +38,12 @@
               %br
             .field-input
               = f.password_field :password_confirmation, autocomplete: "off"
-          .field
+
+          // ajax処理で使う分のパラメータをhidden_fieldで持っておく
+          = hidden_field_tag "action", params[:action]
+          = hidden_field_tag "route", "users"
+          = hidden_field_tag "idParams", @user.id
+          .field--userimage
             .field-label
               = f.label :プロフィール画像
               %span.field-label__hoge 任意
@@ -56,6 +61,7 @@
                     クリックまたは
                     %br
                     ドラッグ&ドロップ
+            .submit_btn 変更
           .field
             .field-label
               = f.label :自己紹介
@@ -79,4 +85,9 @@
               = f.text_field :dive_number, placeholder:"100(数字のみ記入)"
           .actions
             = f.submit "Create Account", class: 'btn'
+
+  .overlay{:style => "display:none;"}
+  .crop_modal
+  .close_btn
+  .select_icon_btn 決定
 
