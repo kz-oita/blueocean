@@ -87,7 +87,7 @@ window.onload = function () {
       //inputの最後の"data-image"を取得し、input nameの番号を更新。inputの区別のため。
       //全部のプレビューの番号を更新し、削除しても番号が並ぶ。
       $('.item_imgs__default').each(function(i) {
-        $(this).attr('name', "item[item_imgs_attributes][" + (i+1) + "][src]");
+        $(this).attr('name', "post[images_attributes][" + (i+1) + "][src]");
         $(this).attr('data-index', (i+1));
       });
       $('.preview').each(function(i) {
@@ -116,7 +116,7 @@ window.onload = function () {
       let preview_count = $('.up-image').find('.image-preview').length; //プレビューの数を数える
       //inputの番号をつけ直す
       $('.item_imgs__default').each(function(i) {
-        $(this).attr('name', "item[item_imgs_attributes][" + (i+1) + "][src]");
+        $(this).attr('name', "post[image_attributes][" + (i+1) + "][src]");
         $(this).attr('data-index', (i+1));
       });
       $('.preview').each(function(i) {
