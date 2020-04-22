@@ -187,17 +187,31 @@ a {
       text-align: center;
       border-radius: 4px;
     }
-    .preview-field {
-      margin-top: 5px;
-      width: 300px;
-      height: 300px;
-      cursor: pointer;
-      border: 1px solid black;
-      border-radius: 2px;
-      #preview {
-        width: 80%;
-        margin: 0 auto;
-        line-height: 300px;
+    .up-image__group{
+      height: 100%;
+      width: 100%;
+      display: flex;
+      .item_imgs {
+        height: 150px;
+        width: 100%;
+        background-color: rgb(245, 245, 245);
+        border: solid 1px black;
+        cursor: pointer;
+        input[type='file'] {
+          display: none;
+        }
+      }
+      .fa-camera {
+        font-size: 20px;
+        margin-bottom: 8px;
+        width: 100%;
+        text-align:center;
+        padding-top: 70px;
+      }
+      p {
+        text-align:center;
+        font-size: 12px;
+        line-height: 1.4em;
       }
     }
   }

@@ -13,22 +13,27 @@
   %span.field-label__require 必須
   %br
   .field-input
-    #image-box
-      #previews
-        - if @post.persisted?
-          - @post.images.each_with_index do |image, i|
-            = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
-        = form.fields_for :images do |image|
-          .js-file_group{"data-index" => "#{image.index}"}
-            = image.file_field :src, class: 'js-file'
-            %br/
-            %span.js-remove 削除
-          - if @post.persisted?
-            = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-        - if @post.persisted?
-          .js-file_group{"data-index" => "#{@post.images.count}"}
-            = file_field_tag :src, name: "post[images_attributes][#{@post.images.count}][src]", class: 'js-file'
-            .js-remove 削除
+    - if @post.persisted?
+      - @post.images.each_with_index do |image, i|
+        = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+    = form.fields_for :images do |image|
+      .up-image__group
+        .previews
+        %label.item_imgs
+          = icon('fas', 'camera')
+          .image_text_message
+            %p.item_input__body__image_text
+              ファイルをアップロード
+      .js-file_group{"data-index" => "#{image.index}"}
+        = image.file_field :src, class: 'js-file'
+        %br/
+        %span.js-remove 削除
+      - if @post.persisted?
+        = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+    - if @post.persisted?
+      .js-file_group{"data-index" => "#{@post.images.count}"}
+        = file_field_tag :src, name: "post[images_attributes][#{@post.images.count}][src]", class: 'js-file'
+        .js-remove 削除
 
 
 .form__field

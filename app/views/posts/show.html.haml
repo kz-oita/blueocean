@@ -11,7 +11,8 @@
   .post-contents__text
     = simple_format @post.text
   .post-contents__image
-    = image_tag @post.image.url if @post.image?
+    - @post.images.each_with_index do |image, i|
+      = image_tag image.src.url
   .post-contents__tags
     - @post.tag_list.each do |tag|
       = link_to tag,tag_path(tag), class: "tag-name"
