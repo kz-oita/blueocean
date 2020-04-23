@@ -256,20 +256,25 @@
 }
 .preview-field {
   text-align: center;
-  margin-top: 5px;
-  width: 100%;
+  width: 200px;
   height: 200px;
   cursor: pointer;
   border: 1px solid #BFBFBF;
   border-radius: 2px;
   background-color: #EFEFEF;
-
   &__icon{
-    padding-top: 70px;
+    .fa-camera{
+      font-size: 30px;
+    }
   }
-  img.preview{
-    max-width: 200px;
-    max-height: 200px
+  #preview{
+    line-height: 200px;
+  }
+  img{
+    width:auto;
+    height:auto;
+    max-width:198px;
+    max-height:198px;
   }
 }
 

@@ -8,11 +8,28 @@
     .post-contents__manage
       = link_to "編集", edit_post_path(@post.id), class: "post-contents__manage__edit"
       = link_to "削除", post_path(@post.id), method: :delete, class: "post-contents__manage__delete"
+  .post-contents__date
+    = @post.date
   .post-contents__text
     = simple_format @post.text
+
+
+
+
   .post-contents__image
-    - @post.images.each_with_index do |image, i|
-      = image_tag image.src.url
+    = image_tag @post.images.first.src.url
+    %ul.post-contents__image--sub
+      %li.images
+        - @post.images.each_with_index do |image, i|
+          .images__iteming
+            = image_tag image.src.url, class: "image-sub"
+        -# - break if index == 9
+
+
+
+
+
+
   .post-contents__tags
     - @post.tag_list.each do |tag|
       = link_to tag,tag_path(tag), class: "tag-name"

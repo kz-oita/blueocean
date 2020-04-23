@@ -39,11 +39,7 @@
             .field-input
               = f.password_field :password_confirmation, autocomplete: "off"
 
-          // ajax処理で使う分のパラメータをhidden_fieldで持っておく
-          = hidden_field_tag "action", params[:action]
-          = hidden_field_tag "route", "users"
-          = hidden_field_tag "idParams", @user.id
-          .field--userimage
+          .field
             .field-label
               = f.label :プロフィール画像
               %span.field-label__hoge 任意
@@ -57,11 +53,6 @@
                 - else
                   %label.preview-field__icon
                     = icon('fas', 'camera')
-                    %br
-                    クリックまたは
-                    %br
-                    ドラッグ&ドロップ
-            .submit_btn 変更
           .field
             .field-label
               = f.label :自己紹介
