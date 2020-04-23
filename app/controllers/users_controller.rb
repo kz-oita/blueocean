@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def show
     if user_signed_in?
       @user = User.find(params[:id])
-      @posts = @user.posts.order("created_at DESC").page(params[:page]).per(4)
+      @posts = @user.posts.order("created_at DESC")
       @post = @user.posts.count
     else
       redirect_to new_user_registration_path

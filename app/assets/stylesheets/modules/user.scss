@@ -20,7 +20,8 @@
   
 .profile {
   width: 800px;
-  margin: 20px auto;
+  min-height: 1000px;
+  margin: 20px auto 0;
   &__contents{
     display: flex;
     width: 500px;
@@ -43,24 +44,24 @@
   
 }
 .userinfo {
-  width: 40%;
+  width: 60%;
   height: 70px;
   margin: 20px auto 0;
   display: flex;
   .userinfo__post-num{
     border: 1px solid gray;
-    width: 33%;
+    width: 30%;
     text-align: center;
   }
   .userinfo__follow-num{
     border: 1px solid gray;
-    width: 33%;
+    width: 30%;
     text-align: center;
     margin-left: 5px;
   }
   .userinfo__follower-num{
     border: 1px solid gray;
-    width: 33%;
+    width: 30%;
     text-align: center;
     margin-left: 5px;
   }

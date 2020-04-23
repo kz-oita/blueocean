@@ -3,11 +3,19 @@
   %p.main-title
     Blue Ocean
 .contents-wrap
-  .contents-title--main
-    最新の投稿
+  .contents-title--post
+    投稿一覧
   .posts-wrap
     - @posts.each do |post|
       = render partial: "post", locals: { post: post }
-  .paginate
-    = paginate(@posts)
+    .paginate
+      = paginate(@posts)
+      
+  .contents-title--user
+    ユーザー一覧
+  .users-wrap
+    - @users.each do |user|
+      = render partial: "user", locals: { user: user }
+    .paginate
+      = paginate(@users)
 .footer
