@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   has_many   :liked_users, through: :likes, source: :user
   acts_as_taggable
 
-  validates  :title, :text, presence: true
+  validates  :date, :title, :text, presence: true
   accepts_nested_attributes_for :images, allow_destroy: true
   
   def self.search(search)

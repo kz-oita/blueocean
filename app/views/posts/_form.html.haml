@@ -1,4 +1,9 @@
 .form__field.form__field--first
+  = form.label :日付
+  %span.field-label__require 必須
+  %br
+  = form.date_field :date, class: 'form__field__date'
+.form__field
   = form.label :タイトル
   %span.field-label__require 必須
   %br
@@ -34,5 +39,5 @@
   = form.label :タグ（カンマで区切る）
   %span.field-label__hoge 任意
   %br
-  = form.text_field :tag_list, value: @post.tag_list.join(','), placeholder: '例)沖縄,石垣島', class: 'form__field__tag'
+  = form.text_field :tag_list, value: @post.tag_list.join(','), placeholder: '例)沖縄 , 石垣島', class: 'form__field__tag'
 = form.submit '投稿する', class: 'form__field__btn'

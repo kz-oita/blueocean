@@ -48,7 +48,7 @@
             .post__title
               = post.title
             .post__image
-              = image_tag post.image.to_s
+              = image_tag "#{post.images.first.src.url}"
   .paginate
     = paginate(@posts)
 

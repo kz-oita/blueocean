@@ -11,7 +11,9 @@
   .header__right
     -if user_signed_in?
       %ul.contents-menu
-        %li
+        %li.mainmenu
+          -# %p
+          -#   = icon('fa', 'bars')
           = link_to "投稿", new_post_path, class: "menu-text"
         %li
           = link_to "マイページ", user_path(current_user), class: "menu-text"

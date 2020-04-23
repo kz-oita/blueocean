@@ -51,7 +51,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :text, :tag_list, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:post).permit(:date, :title, :text, :tag_list, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def move_to_index
