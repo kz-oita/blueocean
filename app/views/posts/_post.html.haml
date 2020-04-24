@@ -9,5 +9,5 @@
         %p 投稿者：
         = post.user.name
       .favorite-num
-        %p いいね数：
-        = post.liked_users.count
+        %i.fa.fa-star
+          = post.liked_users.count

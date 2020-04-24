@@ -34,6 +34,10 @@ a {
     font-size: 30px;
     text-align: center;
     padding-top: 70px;
+  }.contents-title--tag {
+    font-size: 30px;
+    text-align: center;
+    padding-top: 70px;
   }
 
   .posts-wrap {
@@ -59,14 +63,8 @@ a {
           margin-top: 10px;
           width: 100%;
         }
-        &__tags {
-          .tag-name {
-            background-color: skyblue;
-            border: 1px solid transparent;
-            border-radius: 5px;
-            padding: 5px;
-          }
-        }
+        
+
         &__username {
           display: flex;
           margin-top: 10px;
@@ -102,6 +100,17 @@ a {
           width: 100%;
         }
       }
+    }
+  }
+  .tags-wrap{
+    width: 80%;
+    margin: 30px auto 50px;
+    a.tag-name {
+      background-color: rgb(1,23,98);
+      border: 1px solid transparent;
+      border-radius: 5px;
+      padding: 5px;
+      color: white;
     }
   }
 }
@@ -326,12 +335,29 @@ a {
   margin: 0 auto;
   box-shadow: 0 0 10px rgba(black,0.2);
   box-sizing: border-box;
+
   &__title{
     font-size: 30px;
-    text-align: center;
+    height: 40px;
+    .post-contents__manage{
+      float: right;
+      line-height: 40px;
+      text-align: center;
+      width: 50px;
+      &__icon{
+        font-size: 20px;
+        width: 100%;
+        cursor: pointer;
+        &__menu{
+          display: none;
+          font-size: 15px;
+          line-height: 20px;
+        }
+      }
+    }
   }
   &__username{
-    text-align: center;
+    font-size: 15px;
   }
   &__manage{
     display: flex;
@@ -386,10 +412,11 @@ a {
   &__tags {
     margin-top: 20px;
     .tag-name {
-      background-color: skyblue;
+      background-color: rgb(1,23,98);
       border: 1px solid transparent;
       border-radius: 5px;
       padding: 5px;
+      color: white;
     }
   }
   .like-wrap{

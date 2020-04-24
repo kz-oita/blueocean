@@ -39,16 +39,14 @@
         %p#userinfo__number
           = link_to @user.followers.count, "#"
           -# = link_to @user.followers.count, followers_user_path(@user)
-
-
-  .posts-wrap
-    - @posts.each do |post|
-      .posts-wrap__lists
-        = link_to post_path(post.id) do
-          .post
-            .post__title
-              = post.title
-            .post__image
-              = image_tag "#{post.images.first.src.url}"
+    .posts-wrap
+      - @posts.each do |post|
+        .posts-wrap__lists
+          = link_to post_path(post.id) do
+            .post
+              .post__title
+                = post.title
+              .post__image
+                = image_tag "#{post.images.first.src.url}"
 
 .footer

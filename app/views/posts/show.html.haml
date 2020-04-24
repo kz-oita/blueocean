@@ -2,19 +2,21 @@
 .post-contents
   .post-contents__title
     = @post.title
+    - if user_signed_in? && current_user.id == @post.user_id
+      .post-contents__manage
+        %ul.post-contents__manage__icon
+          = icon('fa', 'edit')
+          %li.post-contents__manage__icon__menu
+            = link_to "編集", edit_post_path(@post.id)
+          %li.post-contents__manage__icon__menu
+            = link_to "削除", post_path(@post.id), method: :delete
   .post-contents__username
-    = link_to "投稿者：#{@post.user.name}", user_path(@post.user.id)
-  - if user_signed_in? && current_user.id == @post.user_id
-    .post-contents__manage
-      = link_to "編集", edit_post_path(@post.id), class: "post-contents__manage__edit"
-      = link_to "削除", post_path(@post.id), method: :delete, class: "post-contents__manage__delete"
+    = link_to @post.user.name, user_path(@post.user.id)
+  
   .post-contents__date
     = @post.date
   .post-contents__text
     = simple_format @post.text
-
-
-
 
   .post-contents__image
     = image_tag @post.images.first.src.url
@@ -25,14 +27,9 @@
             = image_tag image.src.url, class: "image-sub"
         -# - break if index == 9
 
-
-
-
-
-
   .post-contents__tags
     - @post.tag_list.each do |tag|
-      = link_to tag,tag_path(tag), class: "tag-name"
+      = link_to "##{tag}",tag_path(tag), class: "tag-name"
   
   .like-wrap
     %div{:id => "likes_buttons_#{@post.id}"}
@@ -56,3 +53,12 @@
               ：
             = comment.text
 .footer
+
+:javascript
+  $(function(){
+      $('.post-contents__manage__icon').hover(function(){
+          $(".post-contents__manage__icon__menu", this).slideDown();
+      }, function(){
+          $(".post-contents__manage__icon__menu",this).slideUp();
+      });
+  });

@@ -10,7 +10,7 @@
       = render partial: "post", locals: { post: post }
     .paginate
       = paginate(@posts)
-      
+
   .contents-title--user
     ユーザー一覧
   .users-wrap
@@ -18,4 +18,10 @@
       = render partial: "user", locals: { user: user }
     .paginate
       = paginate(@users)
+  .contents-title--tag
+    ハッシュタグ一覧
+  .tags-wrap
+    - @tags.each do |tag|
+      = link_to "##{tag.name}", "#", class: "tag-name"
+      -# = link_to "##{tag.name}", tag_path(tag.id), class: "tag-name"
 .footer

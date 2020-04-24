@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(8)
     @users = User.order("created_at DESC").page(params[:page]).per(8)
+    @tags = ActsAsTaggableOn::Tag.all
   end
 
   def new
