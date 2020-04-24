@@ -22,6 +22,6 @@
     ハッシュタグ一覧
   .tags-wrap
     - @tags.each do |tag|
-      = link_to "##{tag.name}", "#", class: "tag-name"
-      -# = link_to "##{tag.name}", tag_path(tag.id), class: "tag-name"
+      -# = link_to "##{tag.name}", "#", class: "tag-name"
+      = link_to "##{tag.name}", tag_path(tag.name), class: "tag-name"
 .footer

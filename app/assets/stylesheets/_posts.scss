@@ -105,12 +105,15 @@ a {
   .tags-wrap{
     width: 80%;
     margin: 30px auto 50px;
+    display: flex;
+    flex-wrap: wrap;
     a.tag-name {
       background-color: rgb(1,23,98);
       border: 1px solid transparent;
       border-radius: 5px;
       padding: 5px;
       color: white;
+      margin: 5px;
     }
   }
 }
@@ -411,12 +414,15 @@ a {
   }
   &__tags {
     margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
     .tag-name {
       background-color: rgb(1,23,98);
       border: 1px solid transparent;
       border-radius: 5px;
       padding: 5px;
       color: white;
+      margin: 5px 5px 5px 0;
     }
   }
   .like-wrap{

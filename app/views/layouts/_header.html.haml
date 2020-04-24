@@ -17,6 +17,8 @@
         %li.contents-menu__item
           = link_to "マイページ", user_path(current_user), class: "menu-text"
         %li.contents-menu__item
+          = link_to "プロフィール編集", edit_user_path(current_user), class: "menu-text"
+        %li.contents-menu__item
           =link_to "ログアウト", destroy_user_session_path, method: :delete, class: "menu-text"
     -else
       %ul.contents-menu
