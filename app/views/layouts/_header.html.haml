@@ -11,17 +11,26 @@
   .header__right
     -if user_signed_in?
       %ul.contents-menu
-        %li.mainmenu
-          -# %p
-          -#   = icon('fa', 'bars')
+        = icon('fa', 'bars')
+        %li.contents-menu__item
           = link_to "投稿", new_post_path, class: "menu-text"
-        %li
+        %li.contents-menu__item
           = link_to "マイページ", user_path(current_user), class: "menu-text"
-        %li
+        %li.contents-menu__item
           =link_to "ログアウト", destroy_user_session_path, method: :delete, class: "menu-text"
     -else
       %ul.contents-menu
-        %li
-          = link_to "新規登録", new_user_registration_path, class: "header__right--btn"
-        %li
-          = link_to "ログイン", new_user_session_path, class: "header__right--btn"
+        = icon('fa', 'bars')
+        %li.contents-menu__item
+          = link_to "新規登録", new_user_registration_path, class: "menu-text"
+        %li.contents-menu__item
+          = link_to "ログイン", new_user_session_path, class: "menu-text"
+
+:javascript
+  $(function(){
+      $('.contents-menu').hover(function(){
+          $(".contents-menu__item", this).slideDown();
+      }, function(){
+          $(".contents-menu__item",this).slideUp();
+      });
+  });
