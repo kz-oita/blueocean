@@ -1,0 +1,59 @@
+.form__field.form__field--first
+  = form.label :日付
+  %span.field-label__require 必須
+  %br
+  = form.date_field :date, class: 'form__field__date'
+.form__field
+  = form.label :タイトル
+  %span.field-label__require 必須
+  %br
+  = form.text_field :title, placeholder: '例)感動！石垣島で初マンタ', class: 'form__field__title'
+.form__field
+  = form.label :投稿内容
+  %span.field-label__require 必須
+  %br
+  = form.text_area :text, class: 'form__field__text'
+.form__field
+  = form.label :写真
+  %span.field-label__require 必須
+  %br
+  %p.item_input__body__text 最大10枚までアップロードできます
+  .field-input
+    .up-image
+      .up-image__group
+        .previews
+          - if @post.persisted?
+            - @post.images.each.with_index(1) do |image, i|
+              - next if i >= 6
+              .preview{{data:{name: i}},{data:{index: i}}}
+                .img_box
+                  = image_tag image.src.url, data: {index: i}, class: "preview_image"
+                .preview_btn
+                  削除
+        %label.item_imgs
+          = icon('fas', 'camera')
+          .up-image__group__dropbox{data: {index: 1}}
+            = form.file_field :src, class: "item_imgs__default", id: "up_img_last", type: 'file', multiple: true, accept: "image/*"
+          - if @post.persisted?
+            = form.fields_for :images do |image| 
+              = image.check_box :_destroy, data:{index: image.index+1}, class: 'hidden-destroy'
+
+      .under_group
+        .up-image__group_2nd_row
+          .previews_2nd_row
+            - if @post.persisted?
+              - @post.images.each.with_index(1) do |image, i|
+                - next if i <= 5
+                .preview{{data:{name: i}},{data:{index: i}}}
+                  .img_box
+                    = image_tag image.src.url, data: {index: i}, class: "preview_image"
+                  .preview_btn
+                    削除
+          %label.item_imgs_2nd_row
+            = icon('fas', 'camera')
+.form__field
+  = form.label :タグ（カンマで区切る）
+  %span.field-label__hoge 任意
+  %br
+  = form.text_field :tag_list, value: @post.tag_list.join(','), placeholder: '例)沖縄 , 石垣島', class: 'form__field__tag'
+= form.submit '投稿する', class: 'form__field__btn'
