@@ -11,7 +11,7 @@
       .profile__contents__left
         .profile__contents__left__pic
           - if @user.image.url.present?
-            = image_tag @user.image.url
+            = image_tag @user.image.url(:thumb), class: "userprof-pic"
       .profile__contents__right
         .profile__contents__right__content
           = "Name        : #{@user.name}"

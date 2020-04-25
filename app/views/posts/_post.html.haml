@@ -6,8 +6,9 @@
       .post__image
         = image_tag "#{post.images.first.src.url}"
       .post__username
-        %p 投稿者：
-        = post.user.name
+        = image_tag post.user.image.url(:thumb)
+        .post__username__text
+          = post.user.name
       .favorite-num
         %i.fa.fa-star
           = post.liked_users.count

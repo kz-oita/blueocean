@@ -7,44 +7,49 @@
   background-color: white;
   margin: 0 auto;
   .posts-wrap {
-    margin: 10px auto 0;
+    display: flex;
+    flex-wrap: wrap;
     &__lists {
       padding: 10px;
       background-color: #F2FDFF;
       &:hover {
         opacity: 0.5;
       }
-      width: 80%;
-      margin: 30px auto;
+      width: 23%;
+      margin: 20px auto ;
       box-shadow: 0 0 10px rgba(black,0.2);
       box-sizing: border-box;
       .post {
-        padding: 0 30px;
+        padding: 0 3px;
         &__title {
-          font-size: 20px;
+          font-size: 15px;
+          text-align: center;
         }
         &__image > img {
+          margin-top: 10px;
           width: 100%;
-        }
-        &__tags {
-          .tag-name {
-            background-color: skyblue;
-            border: 1px solid transparent;
-            border-radius: 5px;
-            padding: 5px;
-          }
         }
         &__username {
           display: flex;
+          margin-top: 10px;
           text-decoration: none;
-          font-size: 15px;
+          height: 30px;
+          img {
+            width: 30px;
+            border-radius: 50%;
+          }
+          &__text{
+            margin-left: 10px;
+            line-height: 30px;
+            font-size: 15px;
+          }
         }
         .favorite-num {
           display: flex;
+          margin: 10px 0 0 10px;
           font-size: 15px;
         }
       }
     }
-    
   }
 }

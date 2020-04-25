@@ -4,4 +4,4 @@
       .user__name
         = user.name
       .user__image
-        = image_tag "#{user.image.url}"
+        = image_tag user.image.url(:thumb), class: "userprof-pic"

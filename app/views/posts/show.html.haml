@@ -11,12 +11,12 @@
           %li.post-contents__manage__icon__menu
             = link_to "削除", post_path(@post.id), method: :delete
   .post-contents__username
+    = image_tag @post.user.image.url(:thumb)
     = link_to @post.user.name, user_path(@post.user.id)
-  
-  .post-contents__date
-    = @post.date
   .post-contents__text
     = simple_format @post.text
+  .post-contents__date
+    = @post.date
 
   .post-contents__image
     .post-contents__image--main
@@ -63,9 +63,13 @@
         $(".post-contents__manage__icon__menu",this).slideUp();
     });
 
+    //----------------画像切替---------------
+    $(".image-sub").first().addClass("active");
     $('.image-sub').click(function () { // 小画像がクリックされたらイベント発火
       image_url = $(this).attr("src"); // クリックされた画像のPATHを取得
       $(".image-main").attr("src", image_url).hide().fadeIn(); // メイン画像をクリックされた画像に変更
+      $(".image-sub.active").removeClass("active"); // 1枚目の小画像のアクティブを無効化
+      $(this).parent().addClass("active"); // クリックされた小画像をアクティブに変更
     });
   });
 
