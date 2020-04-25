@@ -19,13 +19,14 @@
     = simple_format @post.text
 
   .post-contents__image
-    = image_tag @post.images.first.src.url
+    .post-contents__image--main
+      = image_tag @post.images.first.src.url, class: "image-main"
     %ul.post-contents__image--sub
       %li.images
         - @post.images.each_with_index do |image, i|
           .images__iteming
             = image_tag image.src.url, class: "image-sub"
-        -# - break if index == 9
+
 
   .post-contents__tags
     - @post.tag_list.each do |tag|
@@ -56,9 +57,16 @@
 
 :javascript
   $(function(){
-      $('.post-contents__manage__icon').hover(function(){
-          $(".post-contents__manage__icon__menu", this).slideDown();
-      }, function(){
-          $(".post-contents__manage__icon__menu",this).slideUp();
-      });
+    $('.post-contents__manage__icon').hover(function(){
+        $(".post-contents__manage__icon__menu", this).slideDown();
+    }, function(){
+        $(".post-contents__manage__icon__menu",this).slideUp();
+    });
+
+    $('.image-sub').click(function () { // 小画像がクリックされたらイベント発火
+      image_url = $(this).attr("src"); // クリックされた画像のPATHを取得
+      $(".image-main").attr("src", image_url).hide().fadeIn(); // メイン画像をクリックされた画像に変更
+    });
   });
+
+
