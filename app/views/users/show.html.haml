@@ -1,11 +1,5 @@
 = render 'layouts/header'
 .contents-wrap
-  - unless current_user?(@user)
-    #follow_form
-      - if current_user.following?(@user)
-        = render 'relationships/unfollow', user: @user
-      - else
-        = render 'relationships/follow', user: @user
   .profile
     .profile__contents
       .profile__contents__left
@@ -21,6 +15,12 @@
           = "Dive Number : #{@user.dive_number}本"
         .profile__contents__right__content
           = @user.text
+    - unless current_user?(@user)
+      #follow_form
+        - if current_user.following?(@user)
+          = render 'relationships/unfollow', user: @user
+        - else
+          = render 'relationships/follow', user: @user
     .userinfo
       .userinfo__post-num
         %p 投稿数
@@ -36,14 +36,25 @@
         %p#userinfo__number
           = link_to @user.followers.count, "#"
           -# = link_to @user.followers.count, followers_user_path(@user)
-    .posts-wrap
-      - @posts.each do |post|
-        .posts-wrap__lists
-          = link_to post_path(post.id) do
-            .post
-              .post__title
-                = post.title
-              .post__image
-                = image_tag "#{post.images.first.src.url}"
+    .contents-title--post
+      投稿一覧
+      .posts-wrap
+        - @posts.each do |post|
+          .posts-wrap__lists
+            = link_to post_path(post.id) do
+              .post
+                .post__title
+                  = post.title
+                .post__image
+                  = image_tag "#{post.images.first.src.url}"
+    .contents-title--post
+      フォロー
+    - @user.followings.each do |user|
+      = render partial: "posts/user", locals: { user: user }
+
+    .contents-title--post
+      フォロワー
+    - @user.followers.each do |user|
+      = render partial: "posts/user", locals: { user: user }
 
 .footer

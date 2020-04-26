@@ -1,11 +1,13 @@
 // ーーーーマイページーーーー
 #follow_form {
   text-align: center;
-  padding-top: 100px;
+  margin-top: 30px;
     .follow-now{
       width: 20%;
       height: 40px;
-      background-color: skyblue;
+      background-color: red;
+      color: white;
+      border: 1px solid white;
     }
     .follows{
       width: 20%;
