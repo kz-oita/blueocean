@@ -1,7 +1,41 @@
 = render 'layouts/header'
 .title-wrap
-  %p.main-title
+  %h1.main-title
     Blue Ocean
+.recommend-wrap
+  %h2.recommend-wrap__title
+    Pickup Category
+  .recommend-wrap__contents
+    .recommend-wrap__contents__row
+      %a.content{:href => "#"}
+        .content__pic
+          = image_tag 'pict/pickup_category_1.JPG', :size =>'234x148'
+        .content__text
+          Pickup
+          %br
+          Category1
+      %a.content{:href => "#"}
+        .content__pic
+          = image_tag 'pict/pickup_category_2.JPG', :size =>'234x148'
+        .content__text
+          Pickup
+          %br
+          Category2
+    .recommend-wrap__contents__row
+      %a.content{:href => "#"}
+        .content__pic
+          = image_tag 'pict/pickup_category_3.JPG', :size =>'234x148'
+        .content__text
+          Pickup
+          %br
+          Category3
+      %a.content{:href => "#"}
+        .content__pic
+          = image_tag 'pict/pickup_category_4.JPG', :size =>'234x148'
+        .content__text
+          Pickup
+          %br
+          Category4
 .contents-wrap
   .contents-title--post
     投稿一覧

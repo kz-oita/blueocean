@@ -5,7 +5,8 @@ a {
 
 //------------------indexページ----------------------
 .title-wrap {
-  height: 700px;
+  width: 100%;
+  padding-top: 55%;
   background-image: image-url("pict/bl_topimage.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -18,6 +19,47 @@ a {
     position: absolute;
     top: 50%;
     transform: translateY(-50%) translateX(-50%);
+  }
+}
+.recommend-wrap{
+  width: 100%;
+  height: 450px;
+  text-align: center;
+  &__title{
+    font-weight: 700;
+    font-size: 30px;
+    padding-top: 30px;
+    color: rgb(1,23,98);
+  }
+  &__contents{
+    width: 800px;
+    height: 350px;
+    margin: 0 auto;
+    
+    &__row{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      .content{
+        width: 48%;
+        height: 150px;
+        background-color: white;
+        margin-top: 20px;
+        border: 1px solid black;
+        display: flex;
+        cursor: pointer;
+        &__pic{
+          width: 234px;
+          height: 100%;
+          opacity: 0.8;
+        }
+        &__text{
+          width: 100%;
+          text-align: center;
+          margin-top: 50px;
+        }
+      }
+    }
   }
 }
 .contents-wrap{
@@ -42,19 +84,6 @@ a {
   .posts-wrap {
     display: flex;
     flex-wrap: wrap;
-    justify-content:space-between;
-    .posts-wrap:before {
-      content: “”;
-      display: block;
-      width: calc((100% – 3rem) / 4);
-      order: 1;
-    }
-    .posts-wrap:after {
-      content: “”;
-      display: block;
-      width: calc((100% – 3rem) / 4);
-      margin-right: 1rem;
-    }
     &__lists {
       padding: 10px;
       background-color: #F2FDFF;
