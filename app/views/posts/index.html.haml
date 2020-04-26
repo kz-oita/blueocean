@@ -38,7 +38,7 @@
           Category4
 .contents-wrap
   .contents-title--post
-    投稿一覧
+    Posts
   .posts-wrap
     - @posts.each do |post|
       = render partial: "post", locals: { post: post }
@@ -46,16 +46,20 @@
       = paginate(@posts)
 
   .contents-title--user
-    ユーザー一覧
+    Users
   .users-wrap
     - @users.each do |user|
       = render partial: "user", locals: { user: user }
-    .paginate
-      = paginate(@users)
+  .all-btn
+    %a.contents-all-btn{:href => "/users"}
+      = icon('fa', 'hand-point-right')
+      All Users
+
   .contents-title--tag
-    ハッシュタグ一覧
+    Tags
   .tags-wrap
     - @tags.each do |tag|
       -# = link_to "##{tag.name}", "#", class: "tag-name"
       = link_to "##{tag.name}", tag_path(tag.name), class: "tag-name"
+
 .footer

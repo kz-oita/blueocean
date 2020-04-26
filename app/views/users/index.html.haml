@@ -1,0 +1,8 @@
+= render 'layouts/header'
+.alluser-page
+  .contents-wrap
+    .contents-title--user
+      All Users
+    .users-wrap
+      - @users.each do |user|
+        = render partial: "posts/user", locals: { user: user }
