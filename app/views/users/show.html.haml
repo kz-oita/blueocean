@@ -49,12 +49,14 @@
                   = image_tag "#{post.images.first.src.url}"
     .contents-title--post
       フォロー
-    - @user.followings.each do |user|
-      = render partial: "posts/user", locals: { user: user }
+    .users-wrap
+      - @user.followings.each do |user|
+        = render partial: "posts/user", locals: { user: user }
 
     .contents-title--post
       フォロワー
-    - @user.followers.each do |user|
-      = render partial: "posts/user", locals: { user: user }
+    .users-wrap
+      - @user.followers.each do |user|
+        = render partial: "posts/user", locals: { user: user }
 
 = render 'layouts/footer'
