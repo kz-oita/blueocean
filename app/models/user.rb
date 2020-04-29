@@ -8,16 +8,14 @@ class User < ApplicationRecord
   has_many :comments
   has_many :likes
   has_many :liked_posts, through: :likes, source: :post
-
-
-  has_many :active_follows, class_name: 'Relationship',  
-                            foreign_key: 'following_id',  
-                            dependent: :destroy  
-  has_many :followings, through: :active_follows, source: :followed  
-  has_many :passive_follows, class_name: 'Relationship',  
-                            foreign_key: 'followed_id',  
-                            dependent: :destroy  
-  has_many :followers, through: :passive_follows, source: :following  
+  has_many :active_follows, class_name: 'Relationship',
+                            foreign_key: 'following_id',
+                            dependent: :destroy
+  has_many :followings, through: :active_follows, source: :followed
+  has_many :passive_follows, class_name: 'Relationship',
+                            foreign_key: 'followed_id',
+                            dependent: :destroy
+  has_many :followers, through: :passive_follows, source: :following
 
 
 

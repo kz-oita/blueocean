@@ -1,10 +1,13 @@
 # アプリ名
 Blue Ocean
+
 # テストアカウント
 メールアドレス  : test@gmail.com
 パスワード      : 111111
+
 # 概要
 スキューバダイビングのSNSアプリ
+
 # 制作背景
 趣味のスキューバダイビングをもっと多くの人が好きになって欲しいと思い開発しました。
 ダイビングでは毎回ログというものを付けます。
@@ -20,60 +23,71 @@ SNSに共有することで、ログつけが楽しくなり、またユーザ�
 - ハッシュタグ機能
 - 非同期コメント機能
 - フォロー機能
-# 機能（実装予定/実装中）
-- SNS認証
-- SNSで共有
-- ユーザー検索・タグずけ
-- ランキング機能（いいね数）
-- カテゴリー機能（国内/海外/地域別）
-- Q&A機能（ダイビングについて）
 
 # 本番環境
 ## デプロイ
-ASW
+AWS,Nginx,Capistrano
 
 # BD設計
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
+|name|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
-|username|string|null: false|
-### Association
-- has_many :posts
-- has_many :comments
-- has_one :profiles
-
-## profilesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|pic|string|
+|image|string|
 |text|string|
 |diver_lank|string|
 |dive_number|integer|
 ### Association
-- belongs_to :user
+- has_many  :posts
+- has_many  :comments
+- has_one   :likes
+- has_many  :liked_posts, through: :likes, source: :post
+- has_many  :active_follows, class_name: 'Relationship',
+                            foreign_key: 'following_id',
+                            dependent: :destroy
+- has_many  :followings, through: :active_follows, source: :followed
+- has_many  :passive_follows, class_name: 'Relationship',
+                            foreign_key: 'followed_id',
+                            dependent: :destroy
+- has_many  :followers, through: :passive_follows, source: :following
 
 
 ## postsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|title|text|null: false|
-|text|text|null: false|
+|date|date|null: false|
+|title|string|null: false|
+|text|string|null: false|
 |user|reference|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- has_many :comments
-- has_many :posts_tags
-- has_many  :tags,  through:  :posts_tags
+- has_many   :comments, foreign_key: :post_id, dependent: :destroy
+- has_many   :images
+- has_many   :likes, foreign_key: :post_id, dependent: :destroy
+- has_many   :liked_users, through: :likes, source: :user
+- has_many   :posts_tags
+- has_many   :tags,  through:  :posts_tags
+
+
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|src|string|null: false|
+|post|references|null: false, foreign_key: true|
+### Association
+- belongs_to :post
+
 
 ## tagsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: false|
+|text|string|null: false|
 ### Association
 - has_many :posts_tags
 - has_many  :posts,  through:  :posts_tags
+
 
 ## posts_tagsテーブル
 |Column|Type|Options|
@@ -94,28 +108,5 @@ ASW
 - belongs_to :post
 - belongs_to :user
 
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 
 
