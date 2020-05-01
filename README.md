@@ -1,6 +1,6 @@
 # アプリ名
-Blue Ocean
-
+### Blue Ocean
+(http://18.177.251.164/)
 # テストアカウント
 メールアドレス  : test@gmail.com
 パスワード      : 111111
