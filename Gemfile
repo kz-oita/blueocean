@@ -85,3 +85,4 @@ gem 'fog-aws'
 gem "jquery-rails"
 gem 'pry-rails'
 gem 'font-awesome-sass'
+gem "actionview", ">= 5.2.4.2"
