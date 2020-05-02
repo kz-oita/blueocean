@@ -40,15 +40,15 @@
   .contents-title--post
     Posts
   .posts-wrap
-    - @posts.each do |post|
+    - @post.each do |post|
       = render partial: "post", locals: { post: post }
     .paginate
-      = paginate(@posts)
+      = paginate(@post)
 
   .contents-title--user
     Users
   .users-wrap
-    - @users.each do |user|
+    - @user.each do |user|
       = render partial: "user", locals: { user: user }
   .all-btn
     %a.contents-all-btn{:href => "/users"}
@@ -58,7 +58,7 @@
   .contents-title--tag
     Tags
   .tags-wrap
-    - @tags.each do |tag|
+    - @tag.each do |tag|
       -# = link_to "##{tag.name}", "#", class: "tag-name"
       = link_to "##{tag.name}", tag_path(tag.name), class: "tag-name"
 
