@@ -1,5 +1,4 @@
 FactoryBot.define do
-  factory :src do
-    
+  factory :text do
   end
 end
