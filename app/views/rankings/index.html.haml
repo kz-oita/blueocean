@@ -1,2 +1,16 @@
 = render 'layouts/header'
 = render 'layouts/recommend'
+.contents-wrap
+  .contents-title--post
+    いいね！ランキング
+  .posts-wrap
+    - @post_ranks.each do |post|
+      = render partial: "posts/post", locals: { post: post }
+  
+  .contents-title--post
+    投稿数ランキング
+  .users-wrap
+    - @user_ranks.each do |user|
+      = render partial: "posts/user", locals: { user: user }
+
+= render 'layouts/footer'
