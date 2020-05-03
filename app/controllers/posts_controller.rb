@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.includes(:user).order("created_at DESC").page(params[:page]).per(20)
+    # @all_ranks = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(8).pluck(:post_id))
     @user = User.order("created_at DESC").page(params[:page]).first(4)
     @tag = Post.tag_counts_on(:tags).order('count DESC')
   end
