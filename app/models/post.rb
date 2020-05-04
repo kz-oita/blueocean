@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   validates  :title, :text, presence: true
   belongs_to :user
-  has_many   :images, foreign_key: :post_id, dependent: :destroy
+  has_many   :images, dependent: :destroy
   has_many   :comments, foreign_key: :post_id, dependent: :destroy
   has_many   :likes, foreign_key: :post_id, dependent: :destroy
   has_many   :liked_users, through: :likes, source: :user

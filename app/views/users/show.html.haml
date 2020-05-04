@@ -45,6 +45,9 @@
                   = post.title
                 .post__image
                   = image_tag "#{post.images.first.src.url}"
+                .favorite-num
+                  %i.fa.fa-star
+                    = post.liked_users.count
     .contents-title--post
       フォロー
     .users-wrap

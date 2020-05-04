@@ -6,3 +6,5 @@
     .users-wrap
       - @users.each do |user|
         = render partial: "posts/user", locals: { user: user }
+
+= render 'layouts/footer'
