@@ -11,8 +11,9 @@
           %li.post-contents__manage__icon__menu
             = link_to "削除", post_path(@post.id), method: :delete
   .post-contents__username
-    = image_tag @post.user.image.url(:thumb)
-    = link_to @post.user.name, user_path(@post.user.id)
+    - if @post.user.image.url present?
+      = image_tag @post.user.image.url(:thumb)
+      = link_to @post.user.name, user_path(@post.user.id)
   .post-contents__text
     = simple_format @post.text
   .post-contents__date

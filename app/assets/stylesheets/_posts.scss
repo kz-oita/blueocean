@@ -104,6 +104,7 @@ a {
   .posts-wrap {
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
     &__lists {
       padding: 10px;
       background-color: #F2FDFF;
@@ -111,7 +112,7 @@ a {
         opacity: 0.5;
       }
       width: 23%;
-      margin: 20px auto ;
+      margin: 8px  ;
       box-shadow: 0 0 10px rgba(black,0.2);
       box-sizing: border-box;
       .post {
@@ -150,6 +151,7 @@ a {
   .users-wrap {
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
     &__lists {
       padding: 10px;
       background-color: #F2FDFF;
@@ -157,7 +159,7 @@ a {
         opacity: 0.5;
       }
       width: 23%;
-      margin: 20px auto ;
+      margin: 8px ;
       box-shadow: 0 0 10px rgba(black,0.2);
       box-sizing: border-box;
       .user {

@@ -6,7 +6,8 @@
       .post__image
         = image_tag "#{post.images.first.src.url}"
       .post__username
-        = image_tag post.user.image.url(:thumb)
+        - if post.user.image.url present?
+          = image_tag post.user.image.url(:thumb)
         .post__username__text
           = post.user.name
       .favorite-num
