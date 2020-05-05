@@ -22,15 +22,15 @@
         - else
           = render 'relationships/follow', user: @user
     .userinfo
-      .userinfo__post-num
+      .userinfo__text
         %p 投稿数
         %p.userinfo__number
           = @user.posts.count
-      .userinfo__follow-num
+      .userinfo__text
         %p フォロー数
         %p.userinfo__number
           = link_to @user.followings.count, "#"
-      .userinfo__follower-num
+      .userinfo__text
         %p フォロワー数
         %p#userinfo__number
           = link_to @user.followers.count, "#"
