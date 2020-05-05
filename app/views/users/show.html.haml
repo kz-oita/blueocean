@@ -37,27 +37,39 @@
     .contents-title--post
       投稿一覧
       .posts-wrap
-        - @posts.each do |post|
-          .posts-wrap__lists
-            = link_to post_path(post.id) do
-              .post
-                .post__title
-                  = post.title
-                .post__image
-                  = image_tag "#{post.images.first.src.url}"
-                .favorite-num
-                  %i.fa.fa-star
-                    = post.liked_users.count
+        -if @posts.present?
+          - @posts.each do |post|
+            .posts-wrap__lists
+              = link_to post_path(post.id) do
+                .post
+                  .post__title
+                    = post.title
+                  .post__image
+                    = image_tag "#{post.images.first.src.url}"
+                  .favorite-num
+                    %i.fa.fa-star
+                      = post.liked_users.count
+        -else
+          .no-message
+            投稿はありません
     .contents-title--post
       フォロー
     .users-wrap
-      - @user.followings.each do |user|
-        = render partial: "posts/user", locals: { user: user }
+      -if @user.followings.present?
+        - @user.followings.each do |user|
+          = render partial: "posts/user", locals: { user: user }
+      -else
+        .no-message
+          フォローしているユーザーはいません
 
     .contents-title--post
       フォロワー
     .users-wrap
-      - @user.followers.each do |user|
-        = render partial: "posts/user", locals: { user: user }
+      -if @user.followers.present?
+        - @user.followers.each do |user|
+          = render partial: "posts/user", locals: { user: user }
+      -else
+        .no-message
+          フォローされているユーザーはいません
 
 = render 'layouts/footer'
