@@ -1,0 +1,43 @@
+// ーーーーindexーーーー
+.alllist-page{
+  padding-top: 70px;
+  .contents-wrap{
+    width: 800px;
+    min-height: 1200px;
+    background-color: white;
+    margin: 0 auto 50px;
+    &__title{
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      background-color: #F2FDFF;
+      margin-top: 10px;
+    }
+    ul.contents-wrap__title li{
+      display: inline-block;
+      text-align: center;
+      font-weight: 700;
+      font-size: 30px;
+      color: rgb(1,23,98);
+      width: 100%;
+      
+    }
+    ul.contents-wrap__title li .active{
+      color: white;
+      display: block;
+      background-color: rgb(1,23,98);
+      text-decoration: none;
+    }
+    ul.contents-wrap__title li :not(.active):hover{
+      opacity: 0.5;
+      transition: .8s;
+      text-decoration: none;
+    }
+    ul.contents li{
+      display: none;
+    }
+    ul.contents li.show{
+      display: block;
+    }
+  }
+}

@@ -2,9 +2,9 @@ class PostsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
 
   def index
-    @post = Post.includes(:user).order("created_at DESC").page(params[:page]).per(20)
+    @post = Post.includes(:user).order("created_at DESC").first(4)
     @user = User.order("created_at DESC").page(params[:page]).first(4)
-    @tag = Post.tag_counts_on(:tags).order('count DESC')
+    @tag = Post.tag_counts_on(:tags).order('count DESC').first(10)
   end
 
   def new
