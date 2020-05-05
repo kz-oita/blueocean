@@ -11,20 +11,20 @@
       = render partial: "post", locals: { post: post }
     -# .paginate
     -#   = paginate(@post)
-  .all-btn
-    %a.contents-all-btn{:href => "/alllists"}
-      = icon('fa', 'hand-point-right')
-      All Posts
+  -# .all-btn
+  -#   %a.contents-all-btn{:href => "/alllists"}
+  -#     = icon('fa', 'hand-point-right')
+  -#     All Posts
 
   .contents-title--user
     Users
   .users-wrap
     - @user.each do |user|
       = render partial: "user", locals: { user: user }
-  .all-btn
-    %a.contents-all-btn{:href => "/alllists"}
-      = icon('fa', 'hand-point-right')
-      All Users
+  -# .all-btn
+  -#   %a.contents-all-btn{:href => "/alllists"}
+  -#     = icon('fa', 'hand-point-right')
+  -#     All Users
 
   .contents-title--tag
     Tags
@@ -32,8 +32,8 @@
     - @tag.each do |tag|
       -# = link_to "##{tag.name}", "#", class: "tag-name"
       = link_to "##{tag.name}", tag_path(tag.name), class: "tag-name"
-  .all-btn
-    %a.contents-all-btn{:href => "/alllists"}
-      = icon('fa', 'hand-point-right')
-      All Tags
+  -# .all-btn
+  -#   %a.contents-all-btn{:href => "/alllists"}
+  -#     = icon('fa', 'hand-point-right')
+  -#     All Tags
 = render 'layouts/footer'
