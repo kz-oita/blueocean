@@ -7,11 +7,15 @@
 @import "footer";
 @import "tags";
 @import "searches";
-@import "alllists";
+@import "all-lists";
+@import "mixin/mixin";
 
 body{
   background-color: #F2FDFF;
 }
 a:hover{
+  text-decoration: none;
+}
+a{
   text-decoration: none;
 }
