@@ -120,6 +120,7 @@ a {
         &__title {
           font-size: 15px;
           text-align: center;
+          font-weight: 700;
         }
         &__image {
           width: 160px;
@@ -147,6 +148,7 @@ a {
           &__text{
             margin-left: 10px;
             line-height: 30px;
+            
           }
         }
         .favorite-num {
@@ -176,6 +178,7 @@ a {
         &__name {
           font-size: 15px;
           text-align: center;
+          font-weight: 700;
         }
         &__image > img {
           margin-top: 10px;
